@@ -1,0 +1,85 @@
+/////////////////////////////////
+// Mixins and Functions        //
+/////////////////////////////////
+
+// ## Includes standard text styling properties.
+// $size: (required) Required font size in pixels
+// $line: (required) Required line height in pixels
+// $family (optional) Font family stack string
+@mixin text($size, $line, $margin: 0, $padding: 0, $family: $text-family-default, $color: $color-black, $weight: normal) {
+    font-size: rem($size);
+    line-height: ($line/$size);
+    font-family: 游ゴシック体, "Yu Gothic", YuGothic, "ヒラギノ角ゴシック Pro", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+    font-weight: $weight;
+    color: $color;
+    margin-bottom: rem($margin);
+    padding-bottom: rem($padding);
+}
+
+// Small devices 576px;
+@mixin screen-sm {
+    @media (min-width: #{$screen-sm-min}) {
+        @content;
+    }
+ }
+ 
+ // Medium devices 768px;
+ @mixin screen-md {
+    @media (min-width: #{$screen-md-min}) {
+        @content;
+    }
+ }
+ 
+ // Large devices 992px;
+ @mixin screen-lg {
+    @media (min-width: #{$screen-lg-min}) {
+        @content;
+    }
+ }
+ 
+ // Extra large devices 1200px;
+ @mixin screen-xl {
+    @media (min-width: #{$screen-xl-min}) {
+        @content;
+    }
+ }
+
+// Let's name this "min-width" and take a single argument we can
+// use to define the viewport width in a media query.
+@mixin min-width($screen) {
+    @media screen and (min-width: $screen+'px') {
+        @content;
+    }
+}
+
+// Let's name this "max-width" and take a single argument we can
+// use to define the viewport width in a media query.
+@mixin max-width($screen) {
+    @media screen and (max-width: $screen+'px') {
+        @content;
+    }
+}
+
+// ## Calculates rem size based on required pixel size and context.
+// $target: (required) Required pixel size
+// $context: (optional) Current font size used to calculate rem value
+// Returns: rem value
+@function rem($target, $context: $browser-context) {
+    $remSize: $target / $context;
+    @return #{$remSize}rem;
+}
+
+// Extend an item or class (ex. @extend %item;)
+// Centre content
+%layout_block-centered {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+// Extend an item or class (ex. @extend %item;)
+// Centre content
+%vertical_block-centered {
+    margin-top: auto !important;
+    margin-bottom: auto !important;
+}

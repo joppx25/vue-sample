@@ -1,0 +1,383 @@
+// Variables
+@import 'variables';
+
+// Mixin
+@import 'mixin';
+
+// list of fonts
+@each $key, $value in $font-size {
+    .font-#{$key} {
+        font-size: #{$value}px;
+    }
+}
+
+.container-radio {
+    min-height: 30px;
+    padding-top: 5px;
+    margin-bottom: 8px;
+
+    .radio {
+        -webkit-appearance: button;
+        -moz-appearance: button;
+        appearance: button;
+        border: 1px solid $color-dim-gray;
+        background: $color-white;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+
+        &:checked {
+            border: 10px solid $color-dim-gray;
+        }
+
+        &:focus {
+            outline:none;
+        }
+    }
+
+    span {
+        margin-left: 5px;
+        display: inline-block;
+        margin-top: 0px;
+        vertical-align: super;
+    }
+}
+
+.pb-btn {
+    width: 283px;
+    height: 67px;
+    display: inline-block;
+    font-weight: 400;
+    color: $color-white;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: 15px;
+    font-size: 0.9rem;
+    line-height: 35px;
+    border-radius: 0.25rem;
+    box-shadow: 0 2px 5px rgba($color-black, .16);
+
+    @include max-width (425) {
+        width: 230px;
+    }
+
+    &-primary {
+        background-color: $color-silver;
+
+        &:disabled {
+            background-color: $color-gainsboro;
+        }
+
+        &.isDisabled {
+            pointer-events: none;
+            color: currentColor;
+            cursor: not-allowed;
+            opacity: 0.5;
+            text-decoration: none;
+            background-color: $color-gainsboro;
+        }
+
+        &:hover:not(.isDisabled):not(:disabled) {
+            text-decoration: none;
+            color: $color-white;
+            background-color: $color-silver-shade;
+        }
+    }
+
+    &-submit {
+        background-color: #218c39;
+        color: $color-white !important;
+        font-weight: bold;
+
+        &:disabled {
+            background-color: #ccc;
+        }
+
+        &.isDisabled {
+            pointer-events: none;
+            color: currentColor;
+            cursor: not-allowed;
+            opacity: 0.5;
+            text-decoration: none;
+            background-color: $color-light-pink;
+        }
+
+        &:hover:not(.isDisabled):not(:disabled) {
+            text-decoration: none;
+            color: $color-white;
+            background-color: #218c39;
+        }
+    }
+
+    &.icon-caret:after {
+        content: url('/images/icons/caret-right.png');
+        float: right;
+        margin-right: -5px;
+    }
+}
+
+.navbar {
+    &.shadow-sm {
+        box-shadow: 0 1px 0 1px #ED5B5E !important;
+        margin-bottom: 2px;
+    }
+}
+
+.main-container {
+    margin-top: 15px;
+    margin-bottom: 16px;
+}
+
+.schedules {
+
+    .mobile-date {
+        width: 100%;
+        display: none;
+        margin-top: 12px;
+        border-bottom: 2px solid #CCC;
+        @include text($text-size-xl, $text-line-xxl, $weight: 600, $margin: 16, $padding: 4, $color: #333);
+
+        @include max-width(768) {
+            display: block;
+        }
+    }
+
+    .item {
+        padding-left: 0;
+        padding-right: 2px;
+        @include text($text-size-md, $text-line-xxl, $weight: 600, $color: $color-suva-grey, $padding: 2);
+
+        a {
+            color: $color-suva-grey;
+            text-align: center;
+
+            .card {
+                border-radius: 0 !important;
+                border: solid 2px #DFDFDF !important;
+
+                &-body {
+                    padding: 15px 0;
+
+                    .date {
+                        @include text($text-size-lg, $text-line-xxxl, $weight: 600, $color: $color-suva-grey);
+
+                        @include max-width(768) {
+                            display: none;
+                        }
+                    }
+
+                    .time {
+                        @include text($text-size-sm, $text-line-xxl, $weight: 600, $color: '#DFDFDF');
+
+                        @include max-width(768) {
+                            padding-left: 10px;
+                        }
+                    }
+                }
+            }
+
+            &:not(.disabled):hover, &.selected {
+                text-decoration: none;
+                color: $color-black;
+
+                .card {
+                    background-color: #ED5B5E;
+                    border: 2px solid #ED5B5E !important;
+
+                    div {
+                        color: $color-white;
+                        font-weight: 600;
+                    }
+
+                    &:before {
+                        font-family: FontAwesome;
+                        content: "\f058";
+                        color: $color-white;
+                        font-size: 22px;
+                        position: absolute;
+                        top: 9px;
+                        left: 5px;
+                    }
+                }
+            }
+
+            &.disabled {
+                text-decoration: none;
+                pointer-events: none;
+                cursor: default;
+
+                .is-fully-booked {
+                    color: #DFDFDF !important;
+                    background-color: #F2F2F2 !important;
+                    border: 2px solid #DFDFDF !important;
+
+                    .card-body {
+                        .full-indicator {
+                            border-radius: 20px;
+                            background-color: #B2B2B2;
+                            color: #F2F2F2;
+                            font-size: 9px;
+                            font-weight: bold;
+                            text-align: center;
+                            padding: 8px 2px;
+                            position: absolute;
+                            top: 11px;
+                            left: 3px;
+                            height: 27px;
+                            width: 27px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .pb-btn-submit {
+        border-radius: 6px !important;
+        box-shadow: 0 0 9.7px 0.3px rgba(78, 78, 78, 0.3) !important;
+        background-color: #ED5B5E !important;
+    }
+}
+
+.badge {
+    @include text($text-size-xs, $text-line-md, $color: $color-white);
+    min-height:20px;
+    padding: 3px 10px 0px 10px;
+    margin-left: 8px;
+    background-color: #ED5B5E;
+}
+
+
+.checkmark-container {
+    display: block;
+    position: relative;
+    padding-left: 40px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+    }
+
+    input:checked ~ .checkmark {
+        background-color: #ED5B5E;
+        border: 1px solid #ED5B5E;
+
+        &:after {
+            display: block;
+        }
+    }
+
+    .checkmark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 24px;
+        width: 24px;
+        background-color: $color-white;
+        border: 1px solid $color-suva-grey;
+
+        &:after {
+            content: "";
+            position: absolute;
+            display: none;
+            left: 8px;
+            top: 5px;
+            width: 6px;
+            height: 11px;
+            border: solid $color-white;
+            border-width: 0 3px 3px 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+    }
+}
+
+.title-default {
+    text-align: center;
+    @include text($text-size-30, $text-line-35, $weight: 600, $margin: 10);
+
+    @include max-width(767) {
+        @include text($text-size-25, $text-line-35, $weight: 600, $margin: 10);
+    }
+
+    @include max-width(435) {
+        @include text($text-size-xxl, $text-line-35, $weight: 600, $margin: 10);
+    }
+
+    @include max-width(372) {
+        @include text($text-size-xl, $text-line-35, $weight: 600, $margin: 10);
+    }
+
+    &-underline {
+        &:after {
+            content: "";
+            display: block;
+            margin-top: 22px;
+            width: 270px;
+            border-bottom: 4px solid $color-bondi-blue;
+            @extend %layout_block-centered;
+
+            @include max-width(575) {
+                width: 200px;
+                margin-top: 5px;
+            }
+        }
+    }
+}
+
+.sub-header {
+    @include text($text-size-xl, $text-line-30);
+    margin-bottom: 16px;
+    text-align: center;
+
+    @include max-width(425) {
+        @include text($text-size-lg, $text-line-30);
+    }
+}
+
+.pre-line {
+    white-space: pre-line;
+}
+
+// list of height
+@each $key, $value in $height-size {
+    .h-#{$key} {
+        height: #{$value}px !important;
+    }
+}
+
+.swal2-modal {
+    @include max-width(500) {
+        .swal2-title {
+            font-size: 20px;
+        }
+
+        #swal2-content {
+            font-size: 14px;
+        }
+
+        .swal2-actions {
+            font-size: 14px;
+        }
+    }
+}
+
+.logo-img {
+    height: 50px;
+}
+
+.invisible {
+    visibility: hidden;
+}

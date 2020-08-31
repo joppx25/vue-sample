@@ -1,0 +1,183 @@
+// Variables
+@import 'variables';
+
+// Mixin
+@import 'mixin';
+
+//common style
+@import 'common';
+
+body {
+    background-color: $color-white;
+}
+
+.sidebar {
+    width: 240px;
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    background-color: $color-bondi-blue;
+    padding-top: 42px;
+    top: 0;
+
+    .logo-brand {
+        text-align: center;
+        @include text($text-size-xl, $text-line-xl, $weight: 600, $margin: 30);
+    }
+
+    .nav {
+        margin-top: 16px;
+
+        &-item {
+            a {
+                color: $color-white;
+                padding: 22px 24px;
+
+                &.active {
+                    background-color: $color-eastern-blue;
+                }
+
+                &:hover {
+                    background-color: $color-eastern-blue;
+                }
+            }
+        }
+    }
+}
+
+.main-container {
+    width: calc(100% - 240px);
+    margin-left: 240px;
+    padding: 52px 15px;
+
+    .content-wrapper {
+        max-width: 1500px;
+        padding: 15px;
+        @extend %layout_block-centered;
+    }
+}
+
+.login {
+    &-wrapper {
+        width: 100%;
+        min-height: 100vh;
+        background: #ebf1f5;
+        display: flex;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-box;
+        display: -ms-flexbox;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        .card {
+            width: 600px;
+            height: 100%;
+            margin-top: 100px;
+            background: $color-white;
+            border-radius: 5px;
+            padding: 50px 80px 60px;
+            box-shadow: 0 3px 20px 0px rgba($color-black, 0.1);
+            -moz-box-shadow: 0 3px 20px 0px rgba($color-black, 0.1);
+            -webkit-box-shadow: 0 3px 20px 0px rgba($color-black, 0.1);
+            -o-box-shadow: 0 3px 20px 0px rgba($color-black, 0.1);
+            -ms-box-shadow: 0 3px 20px 0px rgba($color-black, 0.1);
+            font-size: rem($text-size-lg);
+
+            @include max-width(767) {
+                margin: 50px 15px 20px;
+            }
+
+            @include max-width(575) {
+                padding: 50px 40px 60px;
+            }
+
+            input:not([type="checkbox"]) {
+                min-height: 48px;
+                border: 2px solid $color-silver-shade;
+                border-radius: 0;
+
+                &::placeholder {
+                    color: #D1D1D2;
+                }
+            }
+
+            .option-box {
+                font-size: 15px;
+            }
+
+            /* The container */
+            .checkmark-container {
+                position: relative;
+                padding-left: 40px;
+                display: inline-block;
+                cursor: pointer;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+
+                input {
+                    position: absolute;
+                    opacity: 0;
+                    cursor: pointer;
+                    height: 0;
+                    width: 0;
+                }
+
+                input:checked ~ .checkmark {
+
+                    &:after {
+                        display: block;
+                    }
+                }
+
+                .checkmark:after {
+                    left: 7px;
+                    top: 2px;
+                    width: 8px;
+                    height: 15px;
+                    border: solid $color-white;
+                    border-width: 0 3px 3px 0;
+                    -webkit-transform: rotate(45deg);
+                    -ms-transform: rotate(45deg);
+                    transform: rotate(45deg);
+                }
+            }
+
+            .checkmark {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 24px;
+                width: 24px;
+                background-color: $color-white;
+                border: 2px solid $color-silver-shade;
+
+                &:after {
+                    content: "";
+                    position: absolute;
+                    display: none;
+                }
+            }
+        }
+
+        .pb-btn-primary {
+            color: $color-white;
+            background-color: $color-bondi-blue;
+            border-radius: 24px;
+            height: 48px;
+            max-width: 320px;
+            width: 100%;
+            text-align: center;
+
+            &:hover {
+                background-color: $color-eastern-blue !important;
+            }
+        }
+    }
+}
+
+.datepicker[readonly] {
+    background-color: white !important;
+}

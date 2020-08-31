@@ -1,0 +1,96 @@
+.steps {
+    width: 100%;
+    text-align: center;
+    line-height: rem($text-line-xxl);
+    
+    @include max-width(575) {
+        margin-top: 16px;
+        margin-bottom: 11px;
+    }
+
+    &-breadcrumb {
+        display: inline-block;
+        border: solid 2px #DDD;
+        overflow: hidden;
+    
+        a {
+            pointer-events: none;
+            text-decoration: none;
+            outline: none;
+            display: block;
+            float: left;
+            padding: 8px 32px 0 45px;
+            height: 60px;
+            background: $color-white;
+            position: relative;
+            text-align: center;
+            @include text($text-size-md, $text-line-xxl,  $color: $color-gainsboro);
+
+            @include max-width(575) {
+                padding: 10px 5px 0 32px;
+                @include text($text-size-11, $text-line-xxl,  $color: $color-gainsboro);
+            }
+
+            @include max-width(374) {
+                padding: 10px 0 0 32px;
+                @include text($text-size-xs, $text-line-xxl,  $color: $color-gainsboro);
+            }
+            
+            &:first-child {
+                padding-left: 22px;
+
+                @include max-width(575) {
+                    padding-left: 10px;
+                }
+
+                @include max-width(374) {
+                    padding-left: 5px;
+                }
+
+                &:before {
+                    left: 14px;
+                }
+            }
+            
+            &:last-child {
+                padding-right: 32px;
+                
+                @include max-width(575) {
+                    padding: 8px 22px 0 45px;
+                }
+
+                @include max-width(374) {
+                    padding: 8px 10px 0 35px;
+                }
+
+                &:after {
+                    right: -30px;
+                }
+            }
+            
+            &.active {
+                color: $color-white;
+                background: #ED5B5E;
+
+                &:after {
+                    background: transparent;    
+                    background-image: linear-gradient(45deg, transparent 50%, #ED5B5E 50%);
+                }
+            }
+            
+            &:after {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: -27px;
+                width: 60px;
+                height: 60px;
+                transform: scale(0.707) rotate(45deg);
+                z-index: 1;
+                background-image: linear-gradient(45deg, transparent 50%, $color-white 50%);
+                box-shadow: 2px -2px 0 1px $color-gainsboro;
+                border-radius: 0 5px 0 50px;
+            }
+        }
+    }
+}

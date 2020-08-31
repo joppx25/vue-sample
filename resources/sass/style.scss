@@ -1,0 +1,354 @@
+// Variables
+@import 'variables';
+
+// Mixin
+@import 'mixin';
+
+//breadcrumb
+@import 'breadcrumb';
+
+//common style
+@import 'common';
+
+body {
+    background-color: #fefff2;
+}
+.container-fluid{
+    padding:0px !important;
+}
+.wrapper {
+    max-width: 1140px;
+    width: 100%;
+    background-color: $color-white;
+    margin: 12px auto 22px auto;
+    padding: 32px 64px;
+
+    @include max-width (1600) {
+        max-width: 1200px;
+    }
+
+    @include max-width (768) {
+        padding: 16px 20px;
+    }
+
+    @include max-width (350) {
+        padding: 12px;
+    }
+
+    .event-form {
+        width: 100%;
+
+        .title {
+            margin-top: 12px;
+            border-bottom: 2px solid #CCC;
+            @include text($text-size-xxxl, $text-line-30, $weight: 600, $margin: 16, $padding: 4, $color: #333);
+
+            @include max-width (768) {
+                margin-top: 0;
+                @include text($text-size-xxl, $text-line-30, $weight: 600, $margin: 16, $padding: 4, $color: #333);
+            }
+
+            @include max-width (375) {
+                @include text($text-size-xxl, $text-line-30, $weight: 600, $margin: 16, $padding: 4, $color: #333);
+            }
+        }
+
+        .description {
+            margin-top: 32px;
+            @include text($text-size-xl, $text-line-xxxxl, $color: $color-dim-gray, $margin: 16);
+
+            @include max-width (768) {
+                margin-top: 12px;
+                @include text($text-size-lg, $text-line-xxxxl, $color: $color-dim-gray, $margin: 16);
+            }
+        }
+
+        .description-title {
+            margin-top: 32px;
+            font-weight: bold;
+            @include text($text-size-md, $text-line-xxl, $color: #868686, $weight: bold);
+
+            @include max-width (768) {
+                margin-top: 12px;
+                @include text($text-size-sm, $text-line-xxl, $color: #868686, $weight: bold);
+            }
+        }
+
+        .description-content {
+            @include text($text-size-xl, $text-line-xxxxl, $color: #222222, $weight: bold);
+
+            @include max-width (768) {
+                @include text($text-size-lg, $text-line-xxxxl, $color: #222222, $weight: bold);
+            }
+            font-stretch: normal;
+            font-style: normal;
+        }
+
+        .schedules {
+            margin-top: 32px;
+            @include text($text-size-xxl, $text-line-xl, $margin: 16, $color: #333);
+        }
+
+        a.pb-btn-primary-outline {
+            font-size: rem($text-size-xl);
+            padding-top: 8px;
+        }
+    }
+
+    .contact-form {
+        width: 100%;
+
+        .title {
+            margin-top: 12px;
+            border-bottom: 2px solid $color-dim-gray;
+            @include text($text-size-xxxl, $text-line-xxl, $weight: 600, $margin: 16, $padding: 12, $color: $color-dim-gray);
+        }
+
+        form {
+            width: 700px;
+            margin: 0 auto;
+
+            @include max-width(900) {
+                width: 100%;
+            }
+
+            .item {
+                &.has-icon {
+                    .form-control {
+                        padding-left: 60px;
+                    }
+
+                    .form-control-icon {
+                        display: block;
+                        pointer-events: none;
+                        position: absolute;
+                        text-align: center;
+                        z-index: 2;
+
+                        img {
+                            height: 48px !important;
+                            width: 48px !important;
+                        }
+
+                        &.has-error {
+                            border: 2px solid $color-red;
+                            border-right:none;
+                            img {
+                                height: 44px !important;
+                            }
+                        }
+                    }
+                }
+
+                &-title {
+                    font-weight: 700;
+                    line-height: 40px;
+
+                    label {
+                        margin-bottom: 0 !important;
+                    }
+                }
+
+                &-content {
+                    .item-input {
+                        padding: 22px 10px;
+                        border: 2px solid $color-zumthor;
+                        border-radius: 0;
+                        color: $color-dim-gray;
+
+                        &::placeholder {
+                            color: $color-ghost;
+                        }
+
+                        &.has-error {
+                            border: 2px solid $color-red;
+                        }
+                    }
+
+                    p {
+                        color: $color-red;
+                        margin-bottom: 0 !important;
+                    }
+
+                    .form-info {
+                        padding-top: 5px;
+                        font-size: rem($text-size-sm);
+                        color: $color-alto;
+                    }
+                }
+            }
+
+            .terms-title {
+                font-weight: 600;
+                font-size: 18px;
+                margin-top: 16px;
+
+                @include max-width(350) {
+                    margin-left: 16px;
+                    margin-right: 16px;
+                }
+            }
+
+            .term-details {
+                background-color: $color-white-smoke;
+                padding: 10px;
+                height: 200px;
+                overflow: auto;
+                border: 1px solid $color-zumthor;
+
+                @include max-width(350) {
+                    margin-left: 16px;
+                    margin-right: 16px;
+                }
+            }
+
+            .term-condition {
+                text-align: center;
+                padding: 24px;
+                margin-top: 30px;
+
+                @include max-width(767) {
+                    background-color: transparent;
+                    padding-top: 0;
+                }
+
+                .checkmark-container {
+                    @include text($text-size-lg, $text-size-lg, $weight: 600);
+
+                    .description {
+                        padding-top: 5px;
+                        vertical-align: middle;
+                    }
+                }
+            }
+
+            .pb-btn-submit {
+                border-radius: 8px !important;
+                box-shadow: 0 0 9.7px 0.3px rgba(78, 78, 78, 0.3) !important;
+                background-color: $color-burnt-sienna !important;
+            }
+
+            .btn-wrapper {
+                margin-top: 16px !important;
+            }
+
+            .back-link {
+                color: $color-alto;
+            }
+        }
+    }
+
+    .details {
+        .message-notes {
+            background-color: $color-mint-cream-light;
+            border: 1px solid $color-whisper;
+            padding: 20px;
+            margin-bottom: 45px;
+            text-align: center;
+
+            .title {
+                @include text($text-size-xl, $text-line-lg, $weight: 600, $margin: 18);
+
+                @include max-width(767) {
+                    @include text($text-size-lg, $text-line-lg, $weight: 600, $margin: 18);
+                }
+            }
+
+            ul {
+                text-align: left;
+                margin-bottom: 0;
+
+                @include max-width(767) {
+                    padding-left: 0;
+                }
+
+                li {
+                    list-style-type: none;
+                    padding-bottom: 20px;
+                    padding-left: 20px;
+
+                    &:before {
+                        content: url('/images/icons/circle-check.png');
+                        position: absolute;
+                        margin-left: -20px;
+                        margin-top: 2px;
+                    }
+
+                    @include max-width(767) {
+                        &:last-child {
+                            padding-bottom: 0;
+                        }
+                    }
+                }
+            }
+        }
+
+        .content {
+            &-header {
+                margin-top: 32px;
+                border-bottom: 2px solid $color-dim-gray;
+                @include text($text-size-xxxl, $text-line-xxl, $weight: 600, $margin: 32, $padding: 12, $color: $color-dim-gray);
+
+                @include max-width(767) {
+                    &:last-child {
+                        padding-bottom: 0;
+                    }
+                }
+
+                @include max-width(450) {
+                    @include text($text-size-xxl, $text-line-xxl, $weight: 600, $margin: 22, $padding: 12, $color: $color-dim-gray);
+                }
+            }
+
+            &-body {
+                .item {
+                    .title {
+                        text-align: left !important;
+                        @include text($text-size-xl, $text-line-xl, $margin: 16, $padding: 12, $color: $color-dim-gray);
+
+                        @include max-width(767) {
+                            @include text($text-size-xxl, $text-line-xl, $weight: 600, $margin: 0, $padding: 12, $color: $color-dim-gray);
+                        }
+
+                        @include max-width(450) {
+                            @include text($text-size-xl, $text-line-xl, $weight: 600, $margin: 0, $padding: 12, $color: $color-dim-gray);
+                        }
+                    }
+
+                    .description {
+                        @include text($text-size-lg, $text-line-xxxl, $weight: 600, $margin: 16, $padding: 12, $color: $color-dim-gray);
+
+                        @include max-width(767) {
+                            @include text($text-size-lg, $text-line-xxxl, $weight: 400, $margin: 12, $padding: 12, $color: $color-dim-gray);
+                        }
+                    }
+                }
+            }
+        }
+
+        .pb-btn-primary-outline {
+            font-size: rem($text-size-xl);
+            padding-top: 8px;
+        }
+
+        .btn-wrapper {
+            .pb-btn {
+                @include max-width(767) {
+                    width: 220px;
+                }
+                @include max-width(575) {
+                    width: 180px;
+                }
+                @include max-width(500) {
+                    width: 100%;
+                    margin: 6px 0 !important;
+                }
+            }
+        }
+    }
+
+    .btn-wrapper {
+        margin-top: 32px;
+        text-align: center;
+    }
+}

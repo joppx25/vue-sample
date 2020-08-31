@@ -1,0 +1,105 @@
+// Typography
+$text-family-default:  "Hiragino Kaku Gothic ProN" !default;
+$font-size-base: 0.9rem;
+$line-height-base: 1.6;
+
+// Colors
+$color-white: #FFFFFF;
+$color-black: #000000;
+$color-blue: #3490dc;
+$color-indigo: #6574cd;
+$color-purple: #9561e2;
+$color-pink: #f66d9b;
+$color-red: #e3342f;
+$color-orange: #f6993f;
+$color-yellow: #ffed4a;
+$color-green: #38c172;
+$color-teal: #4dc0b5;
+$color-cyan: #6cb2eb;
+
+// Color custom
+$color-bondi-blue: #00A2B4;
+$color-eastern-blue: #118A98;
+$color-white-smoke-shade: #F8F8F8;
+$color-silver-shade: #BCBCBC;
+$color-mint-cream: #F8FAF9;
+$color-dim-gray: #707070;
+$color-azure: #F4FCFD;
+$color-ghost: #D1D1D2;
+$color-zumthor: #d0d1d1;
+$color-gainsboro: #DDDDDD;
+$color-suva-grey: #8B8989;
+$color-wild-watermelon: #FF616F;
+$color-brink-pink: #FF7682;
+$color-light-pink: #FFB5BC;
+$color-silver: #C7C5C5;
+$color-white-smoke: #F7F5F5;
+$color-pink-swan: #C4B8B8;
+$color-whisper: #E5E5E5;
+$color-mint-cream-light: #F8FAF9;
+$color-burnt-sienna: #ED5B5E;
+$color-alto: #D0D0D0;
+
+// Base font-sizes
+$text-size-xs: 10 !default;
+$text-size-sm: 12 !default;
+$text-size-md: 14 !default;
+$text-size-lg: 16 !default;
+$text-size-xl: 18 !default;
+$text-size-xxl: 20 !default;
+$text-size-xxxl: 22 !default;
+$text-size-xxxxl: 24 !default;
+
+//custome size
+$text-size-11: 11 !default;
+$text-size-17: 17 !default;
+$text-size-25: 25 !default;
+$text-size-30: 30 !default;
+
+// Base line-heights
+$text-line-xs: 10 !default;
+$text-line-sm: 12 !default;
+$text-line-md: 14 !default;
+$text-line-lg: 16 !default;
+$text-line-xl: 18 !default;
+$text-line-xxl: 20 !default;
+$text-line-xxxl: 22 !default;
+$text-line-xxxxl: 24 !default;
+
+//custome line height
+$text-line-30: 30 !default;
+$text-line-35: 35 !default;
+
+$browser-context: 16 !default;
+
+// Small tablets and large smartphones (landscape view)
+$screen-sm-min: 576px;
+
+// Small tablets (portrait view)
+$screen-md-min: 768px;
+
+// Tablets and small desktops
+$screen-lg-min: 992px;
+
+// Large tablets and desktops
+$screen-xl-min: 1200px;
+
+$font-size: (
+    xs: 10,
+    sm: 12,
+    md: 16,
+    lg: 20,
+    xl: 24,
+    xxl: 28,
+    xxxl: 32,
+    xxxxl: 48
+);
+
+$height-size: (
+    xs: 20,
+    sm: 50,
+    md: 100,
+    lg: 150,
+    xl: 200,
+    xxl: 250,
+);
